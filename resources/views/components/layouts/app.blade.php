@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -12,19 +13,23 @@
     .sidebar {
       transition: all 0.3s;
     }
+
     @media (max-width: 768px) {
       .sidebar {
         transform: translateX(-100%);
       }
+
       .sidebar.active {
         transform: translateX(0);
       }
+
       .content-area {
         margin-left: 0 !important;
       }
     }
   </style>
 </head>
+
 <body class="bg-gray-100 font-sans">
   <nav class="bg-white shadow p-4">
     <div class="container mx-auto flex justify-between">
@@ -114,19 +119,19 @@
   <script src="{{ mix('js/app.js') }}"></script>
 
   <script>
-    document.addEventListener('DOMContentLoaded', function() {
+    document.addEventListener('DOMContentLoaded', function () {
       // Sidebar toggle for mobile
       const sidebarToggle = document.getElementById('sidebar-toggle');
       const sidebar = document.querySelector('.sidebar');
-      
+
       if (sidebarToggle) {
-        sidebarToggle.addEventListener('click', function() {
+        sidebarToggle.addEventListener('click', function () {
           sidebar.classList.toggle('active');
         });
       }
-      
+
       // Close sidebar when clicking outside of it on mobile
-      document.addEventListener('click', function(event) {
+      document.addEventListener('click', function (event) {
         if (window.innerWidth < 768 && sidebar.classList.contains('active')) {
           if (!sidebar.contains(event.target) && !sidebarToggle.contains(event.target)) {
             sidebar.classList.remove('active');
@@ -137,4 +142,5 @@
 
   </script>
 </body>
+
 </html>
